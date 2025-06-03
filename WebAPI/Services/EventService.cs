@@ -37,7 +37,7 @@ public class EventService(DataContext context, HttpClient httpClient)
     public async Task<List<EventWithPriceDto>> GetAllEventsWithPricesAsync()
     {
         var events = await _context.Events.ToListAsync();
-        var response = await _httpClient.GetAsync($"https://localhost:7138/api/ticket/getticket");
+        var response = await _httpClient.GetAsync($"https://ventixeticketserviceapp.azurewebsites.net/api/ticket/getticket");
          
         var ticketDtos = await response.Content.ReadFromJsonAsync<List<TicketDto>>();
 
