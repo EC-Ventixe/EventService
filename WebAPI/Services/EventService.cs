@@ -14,7 +14,7 @@ public class EventService(DataContext context, HttpClient httpClient)
     // ----- CREATE -----
     public async Task<EventEntity> AddEventAsync(EventEntity eventEntity, TicketDto ticketDto)
     {
-        var http = await _httpClient.PostAsJsonAsync("https://localhost:7138/api/ticket/createticket", ticketDto);
+        var http = await _httpClient.PostAsJsonAsync("https://ventixeticketserviceapp.azurewebsites.net/api/ticket/createticket", ticketDto);
 
         await _context.Events.AddAsync(eventEntity);
         await _context.SaveChangesAsync();
